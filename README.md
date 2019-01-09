@@ -1,6 +1,6 @@
 # @fiahfy/simple-clone
 
-> Clone(deep copy) object more efficiently than JSON stringify/parse.
+> Clone(deep copy) object more efficiently like JSON stringify and parse.
 
 ## Installation
 ```

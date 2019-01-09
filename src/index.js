@@ -31,7 +31,8 @@ const cloneObject = (obj) => {
 }
 
 const clone = (value, child = false) => {
-  switch (typeof value) {
+  const type = typeof value
+  switch (type) {
     case 'boolean':
     case 'number':
     case 'string':
@@ -42,7 +43,7 @@ const clone = (value, child = false) => {
       if (child) {
         return null
       }
-      throw new TypeError(`${value} is not cloned`)
+      throw new TypeError(`${type} is not cloned`)
     case 'object':
       return cloneObject(value)
     default:

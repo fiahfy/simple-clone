@@ -1,6 +1,6 @@
 {
   "name": "@fiahfy/simple-clone",
-  "description": "Clone(deep copy) object more efficiently than JSON stringify/parse",
+  "description": "Clone(deep copy) object more efficiently like JSON stringify and parse",
   "version": "0.0.1",
   "author": {
     "name": "fiahfy",
