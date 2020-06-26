@@ -1,5 +1,7 @@
 # simple-clone
 
+![badge](https://github.com/fiahfy/simple-clone/workflows/Node.js%20Package/badge.svg)
+
 > Clone(deep copy) object more efficiently like JSON stringify and parse.
 
 ## Installation
