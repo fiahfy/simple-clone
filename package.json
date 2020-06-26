@@ -1,7 +1,7 @@
 {
   "name": "@fiahfy/simple-clone",
   "description": "Clone(deep copy) object more efficiently like JSON stringify and parse",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "fiahfy",
     "email": "d.fiahfy@gmail.com",
