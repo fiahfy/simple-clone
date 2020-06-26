@@ -1,4 +1,5 @@
-const cloneObject = (obj) => {
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types */
+const cloneObject = (obj: any) => {
   if (obj === null) {
     return null
   }
@@ -25,12 +26,12 @@ const cloneObject = (obj) => {
     }
     return {
       ...carry,
-      [key]: value
+      [key]: value,
     }
   }, {})
 }
 
-const clone = (value, child = false) => {
+export const clone = (value: any, child = false): any => {
   const type = typeof value
   switch (type) {
     case 'boolean':
@@ -50,5 +51,3 @@ const clone = (value, child = false) => {
       return null
   }
 }
-
-export default clone

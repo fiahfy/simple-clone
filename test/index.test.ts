@@ -1,14 +1,15 @@
-import clone from '../src'
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types */
+import { clone } from '../src'
 
-const be = (value) => {
+const be = (value: any) => {
   expect(clone(value)).toBe(JSON.parse(JSON.stringify(value)))
 }
 
-const notBe = (value) => {
+const notBe = (value: any) => {
   expect(clone(value)).not.toBe(JSON.parse(JSON.stringify(value)))
 }
 
-const equal = (value) => {
+const equal = (value: any) => {
   expect(clone(value)).toEqual(JSON.parse(JSON.stringify(value)))
 }
 
@@ -39,7 +40,7 @@ describe('clone primitive values', () => {
   })
 
   test('throw error if function is cloned', () => {
-    expect(() => clone(() => {})).toThrowError(TypeError)
+    expect(() => clone(() => undefined)).toThrowError(TypeError)
   })
 
   test('throw error if undefined is cloned', () => {
@@ -61,7 +62,7 @@ describe('clone complex values', () => {
   })
 
   test('create empty object from promise', () => {
-    equal(new Promise(() => {}))
+    equal(new Promise(() => undefined))
   })
 
   test('create object from custom class correctly', () => {
@@ -69,6 +70,7 @@ describe('clone complex values', () => {
     equal(new MyClass1())
 
     class MyClass2 {
+      foo: string
       constructor() {
         this.foo = 'bar'
       }
@@ -86,14 +88,14 @@ describe('clone complex values', () => {
     equal({})
     equal({ x: 5 })
     equal({ x: 5, y: 6 })
-    equal({ x: [10, undefined, function() {}, Symbol('')] })
+    equal({ x: [10, undefined, () => undefined, Symbol('')] })
     equal({ x: undefined, y: Object, z: Symbol('') })
     equal({ [Symbol('foo')]: 'foo' })
     equal({ [Symbol.for('foo')]: 'foo' })
     equal(
       Object.create(null, {
         x: { value: 'x', enumerable: false },
-        y: { value: 'y', enumerable: true }
+        y: { value: 'y', enumerable: true },
       })
     )
     equal({ foo: { bar: { baz: true } } })
